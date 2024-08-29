@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BatteryException.class)
-    public Response<MyErrorDetails> batteryNotFound(BatteryException e, WebRequest req) {
+    public ResponseEntity<MyErrorDetails> batteryNotFound(BatteryException e, WebRequest req) {
 
         MyErrorDetails err = new MyErrorDetails();
-        err.setTimestamp(LocalDateTime.now());
+        err.setTimeStamp(LocalDateTime.now());
         err.setMessage(e.getMessage());
         err.setDetails(req.getDescription(false));
 
@@ -23,6 +23,30 @@ public class GlobalExceptionHandler {
 
     }
 
-    // batteryDataNotFound
-    // exceptionHandler
+    @ExceptionHandler(BatteryDataException.class)
+    public ResponseEntity<MyErrorDetails> batteryDataNotFound(BatteryDataException e, WebRequest req){
+
+        MyErrorDetails err = new MyErrorDetails();
+
+        err.setTimeStamp(LocalDateTime.now());
+        err.setMessage(e.getMessage());
+        err.setDetails(req.getDescription(false));
+
+        return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<MyErrorDetails> exceptionHandler(Exception e, WebRequest req){
+
+        MyErrorDetails err = new MyErrorDetails();
+
+        err.setTimeStamp(LocalDateTime.now());
+        err.setMessage(e.getMessage());
+        err.setDetails(req.getDescription(false));
+
+        return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+
+    }
+
 }
