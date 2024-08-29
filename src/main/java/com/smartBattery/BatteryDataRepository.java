@@ -12,13 +12,13 @@ public interface BatteryDataRepository extends JpaRepository<BatteryData, Intege
 
     List<BatteryData> findByBatteryOrderByTimeStampDesc(Battery currentBattery);
 
-    @Query("SELECT bd.voltage FROM BatteryData bd WHERE bd.battery.batteryId = :batteryId ORDER BY bd.timeStamp DESC")
-    BatteryData findLatestDataByBatteryId(Integer batteryId);
+    @Query("SELECT bd FROM BatteryData bd WHERE bd.battery.batteryId = :batteryId ORDER BY bd.timeStamp DESC")
+    List<BatteryData> findLatestDataByBatteryId(Integer batteryId);
 
     @Query("SELECT bd FROM BatteryData bd WHERE bd.battery.batteryId = :batteryId AND bd.timeStamp BETWEEN :startTime AND :endTime ORDER BY bd.timeStamp DESC")
     List<BatteryData> findByBatteryIdAndTimeStampBetween(Integer batteryId, LocalDateTime startTime, LocalDateTime endTime);
 
-    // findLatestCurrentBatteryId
+    // findLatestCurrentByBatteryId
     // findLatestVoltageByBatteryId
     // findLatestTemperatureByBatteryId
 
