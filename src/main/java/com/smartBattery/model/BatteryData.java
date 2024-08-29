@@ -1,10 +1,8 @@
 package com.smartBattery.model;
 
-import com.smartBattery.model.Battery;
 import jakarta.persistence.*;
 import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
-
 import java.time.LocalDateTime;
 
 @Data
