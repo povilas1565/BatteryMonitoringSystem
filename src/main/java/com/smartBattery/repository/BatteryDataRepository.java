@@ -1,4 +1,4 @@
-package com.smartBattery;
+package com.smartBattery.repository;
 
 import com.smartBattery.model.Battery;
 import com.smartBattery.model.BatteryData;
