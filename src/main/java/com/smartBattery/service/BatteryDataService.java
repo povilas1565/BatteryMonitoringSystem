@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface BatteryDataService {
 
-    List<BatteryData> getAllInfoOfBatteryId(Integer batteryId) throws Exception;
+    List<BatteryData> getAllInfoOfBatteryId(Integer batteryId) throws Exception, BatteryException;
 
     double getLatestVoltageRecord(Integer batteryId) throws BatteryException, BatteryDataException;
 
