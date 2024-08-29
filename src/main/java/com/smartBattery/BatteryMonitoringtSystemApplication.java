@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BatteryManagementSystemApplication {
+public class BatteryMonitoringtSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BatteryManagementSystemApplication.class, args);
+		SpringApplication.run(BatteryMonitoringtSystemApplication.class, args);
 	}
 
 }
