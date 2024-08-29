@@ -12,7 +12,7 @@ public interface BatteryService {
 
     BatteryInfo getBatteryLatestDetails(Integer batteryId) throws BatteryException;
 
-    void sendBatteryDataToDB(Integer batteryId) throws BatteryException;
+    void sendBatteryDataToDB(Integer batteryId, String battery_model) throws BatteryException;
 
 
 }
